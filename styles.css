@@ -1,0 +1,288 @@
+/* ------------------ Global ------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('images/cloud.png') repeat-x;
+  background-size: 200% auto; /* Ensure smooth transition */
+  animation: cloudMove 60s linear infinite;
+  z-index: -2;
+  opacity: 0.6;
+}
+
+@keyframes cloudMove {
+  0% { background-position: 0 0; }
+  100% { background-position: -2000px 0; } /* Increase shift distance for continuous motion */
+}
+
+/* ------------------ Landing ------------------ */
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('images/cloud.png') no-repeat center center / cover;
+  text-align: center;
+}
+
+.hero-center h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #002d62;
+}
+
+.hero-center p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-center .btn {
+  background: #0078d7;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.hero-center .btn:hover {
+  background: #005fa3;
+}
+
+/* ------------------ Form Pages ------------------ */
+.form-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('images/cloud.png') no-repeat center center / cover;
+}
+
+.form-container {
+  background: #ffffffee;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  text-align: center;
+}
+
+.form-container h1 {
+  color: #0078d7;
+  margin-bottom: 0.5rem;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #0078d7;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background: #005fa3;
+}
+
+.form-container a {
+  color: #0078d7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ------------------ Dashboard ------------------ */
+.dashboard-body {
+  
+    background: url('images/cloud.png') no-repeat center center / cover;
+    font-family: 'Outfit', sans-serif;
+    color: #333;
+    background: linear-gradient(to right, #e0f2ff, #ffffff);
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:#1e40af ;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.top-nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  
+}
+
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.top-nav li {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.top-nav li:hover {
+  opacity: 0.8;
+}
+
+/* Sections */
+.dash-section {
+  padding: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 720px;
+  margin: auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ticket-list > div {
+  padding: 0.75rem;
+  background: #f0faff;
+  border: 1px solid #cceeff;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+thead {
+  background-color: #0078d7;
+  color: white;
+}
+
+button {
+  transition: background 0.2s ease;
+}
+
+button.primary-btn{
+  margin-top: 10px;
+  padding:3px;
+}
+
+
+
+select {
+  padding: 0.6rem;
+  border-radius: 6px;
+}
+
+
+.plane-animation {
+  position: absolute;
+  bottom: 5%;
+  left: -150px;
+  width: 170px;
+  transform: rotate(45deg);
+  animation: fly-diagonal-right 15s linear infinite;
+  z-index: 1;
+}
+
+
+.reverse-plane {
+  position: absolute;
+  bottom: 5%;
+  left: 100vw;
+  width: 170px;
+  transform: scaleX(-1) ;
+  animation: fly-diagonal-left 15s linear infinite;
+  z-index: 1;
+}
+
+
+@keyframes fly-diagonal-right {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(110vw, -100vh) ;
+  }
+}
+
+@keyframes fly-diagonal-left {
+  0% {
+    transform: translate(0, 0) scaleX(-1);
+  }
+  100% {
+    transform: translate(-110vw, -100vh) scaleX(-1);
+  }
+}*/
+
+
+.primary-btn {
+  background: #0078d7;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 1rem;
+}
+
+.primary-btn:hover {
+  background: #005fa3;
+}
+
+.status-msg {
+  margin-top: 1rem;
+  color: green;
+  font-weight: 500;
+}
+
+
