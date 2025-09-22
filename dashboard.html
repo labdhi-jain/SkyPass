@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - SkyPass</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body class="dashboard-body">
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="logo">✈️ SkyPass</div>
+    <nav>
+      <ul>
+        <li onclick="showSection('book')">Book</li>
+        <li onclick="showSection('trips')">Trips</li>
+        <li onclick="showSection('profile')">Profile</li>
+        <li onclick="showSection('customers')">Customers</li>
+        <li onclick="showSection('airlines')">Airlines</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Booking Section -->
+  <section id="book" class="dash-section">
+    <div class="card">
+      <h2>Book Your Flight</h2>
+      <div class="form-grid">
+        <input type="text" id="fromCity" placeholder="From (e.g. Delhi)" />
+        <input type="text" id="toCity" placeholder="To (e.g. Mumbai)" />
+        <input type="date" id="travelDate" />
+        <select id="airlineChoice">
+          <option disabled selected>Choose Airline</option>
+          <option value="Air India">Air India</option>
+          <option value="IndiGo">IndiGo</option>
+          <option value="SpiceJet">SpiceJet</option>
+        </select>
+      </div>
+      <button class="primary-btn" onclick="bookFlight()">Proceed to Payment</button>
+    </div>
+  </section>
+
+  <!-- My Bookings -->
+  <section id="trips" class="dash-section hidden">
+    <div class="card">
+      <h2>My Bookings</h2>
+      <div id="ticketList" class="ticket-list"></div>
+    </div>
+  </section>
+
+  <!-- Profile -->
+  <section id="profile" class="dash-section hidden">
+    <div class="card">
+      <h2>My Profile</h2>
+      <input type="text" id="profileUsername" placeholder="Name" value="John Doe" />
+      <input type="email" id="profileEmail" placeholder="Email" value="john@example.com" />
+      <button class="primary-btn" onclick="updateProfile()">Update</button>
+      <p id="profileStatus" class="status-msg"></p>
+    </div>
+  </section>
+
+  <!-- Customers -->
+  <section id="customers" class="dash-section hidden">
+    <div class="card">
+      <h2>Customer Management</h2>
+      <table id="customerTable">
+        <thead>
+          <tr><th>Username</th><th>Email</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Airlines -->
+  <section id="airlines" class="dash-section hidden">
+    <div class="card">
+      <h2>Airlines Management</h2>
+      <form id="airlineForm" class="form-grid">
+        <input type="text" id="airlineName" placeholder="Airline Name" required />
+        <input type="number" id="fleetSize" placeholder="Fleet Size" required />
+        <input type="number" id="routes" placeholder="Number of Routes" required />
+        <button type="submit" class="primary-btn">Add Airline</button>
+      </form>
+      <table id="airlineTable">
+        <thead>
+          <tr><th>Name</th><th>Fleet</th><th>Routes</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
