@@ -79,10 +79,3 @@ images/
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Node.js, Express, MongoDB, Mongoose, JWT, bcrypt
 
-## License
-
-MIT
-
----
-
-Enjoy booking with SkyPass!
